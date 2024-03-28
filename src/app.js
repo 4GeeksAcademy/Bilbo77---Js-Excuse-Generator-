@@ -10,11 +10,10 @@ window.onload = () => {
   document.querySelector("#btn-excuse").addEventListener("click", () => {
     document.querySelector("#the-excuse").innerHTML = generatorExcuse();
   });
-
-  console.log(generatorExcuse);
 };
 
 let generatorExcuse = () => {
+  
   let who = ["The dog", "My grandma", "The mailman", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
   let what = ["my homework", "my phone", "the car"];
@@ -26,18 +25,20 @@ let generatorExcuse = () => {
     "while I was praying"
   ];
 
-  let whoIndex = Math.floor(Math.random() * who.length);
-  let actionIndex = Math.floor(Math.random() * action.length);
-  let whatIndex = Math.floor(Math.random() * what.length);
-  let whenIndex = Math.floor(Math.random() * when.length);
+ /* let whoElement = Math.floor(Math.random() * who.length);
+  let actionElement = Math.floor(Math.random() * action.length);
+  let whatElement = Math.floor(Math.random() * what.length);
+  let whenElement = Math.floor(Math.random() * when.length);
 
-  return (
-    who[whoIndex] +
-    " " +
-    action[actionIndex] +
-    " " +
-    what[whatIndex] +
-    " " +
-    when[whenIndex]
-  );
-};
+  return who[whoElement] + ' ' + action[actionElement] + ' ' + what[whatElement] + ' ' + when[whenElement];
+*/
+  
+let newArray = [who, action, what, when];
+
+let arrayDeExcusas = newArray.map((elementoDelArray) => {
+return elementoDelArray[Math.floor(Math.random() * elementoDelArray.length)];
+})
+
+return arrayDeExcusas.join(' ');
+
+}
